@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "tipo_documento": {
+      "type": "string",
+      "enum": ["INE", "VISA_AMERICANA"],
+      "description": "Clasifica el documento según sus rubros visibles. Usa 'INE' si contiene textos como 'INSTITUTO NACIONAL ELECTORAL', 'CREDENCIAL PARA VOTAR', 'CURP' o 'CLAVE DE ELECTOR'. Usa 'VISA_AMERICANA' si contiene textos como 'USA', 'B1/B2 VISA/BCC', 'SURNAME', 'GIVEN NAMES' o 'DATE OF ISSUE'."
+    },
+    "nombre_completo": {
+      "type": "string",
+      "description": "Nombre completo del titular. En INE viene bajo 'NOMBRE'. En Visa Americana concatena 'GIVEN NAMES' + 'SURNAME'."
+    },
+    "fecha_nacimiento": {
+      "type": "string",
+      "description": "Fecha de nacimiento ('FECHA DE NACIMIENTO' en INE o 'Date of Birth' en Visa)."
+    },
+    "sexo": {
+      "type": "string",
+      "description": "Sexo del titular ('H'/'M' en INE o 'M'/'F' en Visa)."
+    },
+    "vigencia": {
+      "type": "string",
+      "description": "Fecha o año de expiración ('VIGENCIA' en INE o 'Expires On' en Visa)."
+    },
+    "domicilio": {
+      "type": "string",
+      "description": "Solo INE: dirección completa bajo el rubro 'DOMICILIO'. Si es Visa Americana, devolver 'N/A'."
+    },
+    "clave_elector": {
+      "type": "string",
+      "description": "Solo INE: código alfanumérico bajo 'CLAVE DE ELECTOR'. Si es Visa Americana, devolver 'N/A'."
+    },
+    "curp": {
+      "type": "string",
+      "description": "Solo INE: código de 18 caracteres bajo 'CURP'. Si es Visa Americana, devolver 'N/A'."
+    },
+    "año_de_registro": {
+      "type": "string",
+      "description": "Solo INE: valor bajo 'AÑO DE REGISTRO'. Si es Visa Americana, devolver 'N/A'."
+    },
+    "seccion": {
+      "type": "string",
+      "description": "Solo INE: número bajo 'SECCIÓN'. Si es Visa Americana, devolver 'N/A'."
+    },
+    "nacionalidad": {
+      "type": "string",
+      "description": "Solo Visa Americana: valor bajo 'Nationality' (ej. MEX). Si es INE, devolver 'N/A'."
+    },
+    "fecha_expedicion": {
+      "type": "string",
+      "description": "Solo Visa Americana: fecha bajo 'Date of Issue'. Si es INE, devolver 'N/A'."
+    },
+    "tipo_visa": {
+      "type": "string",
+      "description": "Solo Visa Americana: encabezado o categoría de visa (ej. 'B1/B2 VISA/BCC'). Si es INE, devolver 'N/A'."
+    }
+  },
+  "required": [
+    "tipo_documento",
+    "nombre_completo",
+    "fecha_nacimiento",
+    "sexo",
+    "vigencia",
+    "domicilio",
+    "clave_elector",
+    "curp",
+    "año_de_registro",
+    "seccion",
+    "nacionalidad",
+    "fecha_expedicion",
+    "tipo_visa"
+  ],
+  "additionalProperties": false
+}
